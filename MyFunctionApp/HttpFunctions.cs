@@ -5,10 +5,10 @@ using Microsoft.Extensions.Logging;
 
 namespace Durables
 {
-    public static class HttpFunctions
+    public class HttpFunctions
     {
         [Function(nameof(MyHttpTrigger))]
-        public static async Task<HttpResponseData> MyHttpTrigger(
+        public async Task<HttpResponseData> MyHttpTrigger(
            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
            [DurableClient] DurableTaskClient client,
            FunctionContext executionContext)
